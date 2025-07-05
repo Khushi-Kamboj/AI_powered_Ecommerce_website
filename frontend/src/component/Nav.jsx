@@ -52,28 +52,27 @@ export const Nav = () => {
     };
 
     return (
-        <div className='w-[100vw] h-[65px] bg-[#ecfafaec] z-50 fixed top-0 flex items-center justify-between px-[20px] shadow-md shadow-black'>
-           
-            <div className='flex items-center justify-start gap-[8px] w-[40%] sm:w-[20%] min-w-0'>
-                <img src={logo} alt='' className='w-[24px] sm:w-[28px]'/>
-                <h1 className='text-[18px] sm:text-[25px] truncate'>OneCart</h1>
-            </div>
-            <div className='w-[50%] hidden md:flex'>
-                <ul className='flex items-center justify-center gap-[19px] text-[#222]'>
-                    <li className='text-[16px] cursor-pointer text-[#222] py-[8px] px-[20px] rounded-2xl hover:font-bold transition-all duration-300 ease-in-out hover:underline underline-offset-4'>
-                        HOME
+        <div className='w-full h-[40px] md:h-[45px] lg:h-[50px] bg-[#ecfafaec] z-50 fixed top-0 flex items-center justify-between px-3 md:px-5 shadow-md shadow-black'>
+                {/* Logo & Title */}
+                <div className='flex items-center gap-2 w-1/2 md:w-1/4 min-w-0'>
+                <img src={logo} alt='logo' className='w-6 md:w-7' />
+                <h1 className='text-[16px] md:text-[20px] font-semibold truncate'>OneCart</h1>
+                </div>
+
+                {/* Navigation Links (Visible on md and up) */}
+                <div className='hidden md:flex w-1/2 justify-center'>
+                <ul className='flex gap-4 text-[#222]'>
+                    {['HOME', 'COLLECTIONS', 'ABOUT', 'CONTACT'].map((item) => (
+                    <li
+                        key={item}
+                        className='text-sm lg:text-base cursor-pointer py-2 px-4 rounded-2xl hover:font-bold transition duration-300 ease-in-out hover:underline underline-offset-4'
+                    >
+                        {item}
                     </li>
-                    <li className='text-[16px] cursor-pointer text-[#222] py-[8px] px-[20px] rounded-2xl hover:font-bold transition-all duration-300 ease-in-out hover:underline underline-offset-4'>
-                        COLLECTIONS
-                    </li>
-                    <li className='text-[16px] cursor-pointer text-[#222] py-[8px] px-[20px] rounded-2xl hover:font-bold transition-all duration-300 ease-in-out hover:underline underline-offset-4'>
-                        ABOUT
-                    </li>
-                    <li className='text-[16px] cursor-pointer text-[#222] py-[8px] px-[20px] rounded-2xl hover:font-bold transition-all duration-300 ease-in-out hover:underline underline-offset-4'>
-                        CONTACT
-                    </li>
+                    ))}
                 </ul>
             </div>
+
 
             <div className='flex items-center justify-end gap-[14px] w-[60%] sm:w-[25%] min-w-0 relative'>
                 {!showSearch && <IoSearchCircleOutline className='w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] text-[#000000] cursor-pointer' onClick={() => setShowSearch(prev => !prev)}/> }

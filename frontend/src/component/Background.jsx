@@ -10,7 +10,7 @@ const Background = ({ heroCount }) => {
   const bg = images[heroCount] || images[0];
 
   return (
-    <div className='w-full h-full flex items-center justify-center overflow-hidden z-0'>
+    <div className='w-[60%] h-full flex items-center justify-center overflow-hidden z-0'>
       <img
         src={bg}
         alt='background'

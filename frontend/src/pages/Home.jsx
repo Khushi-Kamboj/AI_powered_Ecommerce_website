@@ -23,7 +23,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='w-[100vw] h-[100vh] bg-gradient-to-l from-[#141414] to-[#0c2025]'>
+    <div className='flex w-full h-[calc(100vh-65px)] mt-[65px] relative bg-gradient-to-l from-[#141414] to-[#0c2025]'>
         <Background heroCount={heroCount} />
         <Hero heroData={heroData[heroCount]} heroCount={heroCount} setHeroCount={setHeroCount} />
     </div>

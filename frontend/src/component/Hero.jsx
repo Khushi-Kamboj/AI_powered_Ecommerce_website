@@ -5,7 +5,7 @@ const Hero = ({ heroData, heroCount, setHeroCount }) => {
   return (
     <div className='w-[40%] h-full relative z-10'>
       {/* Wrapper positioned top-left */}
-      <div className='absolute top-[25%] left-[20%] flex flex-col items-start'>
+      <div className='absolute top-[10%] left-[10%] flex flex-col items-start'>
         {/* Text */}
         <div className='text-white text-[20px] md:text-[40px] lg:text-[55px] leading-tight'>
           <p>{heroData.text1}</p>
@@ -13,7 +13,7 @@ const Hero = ({ heroData, heroCount, setHeroCount }) => {
         </div>
 
         {/* Dots centered under text */}
-        <div className='flex items-center justify-center gap-[10px] mt- ml-[20%]'>
+        <div className='flex items-center justify-center gap-[10px] mt-4 ml-[10%]'>
           {[0, 1, 2, 3].map((idx) => (
             <FaCircle
               key={idx}

@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import { Routes, Route } from 'react-router-dom';
 import { Nav } from './component/Nav';
-import HeroSection from './component/HeroSection';
 import { userDataContext } from '../context/UserContext.jsx';
 
 function App() {
@@ -34,17 +33,7 @@ function App() {
         <Route
           path="/"
           element={
-            userData ? (
-              <>
-                <HeroSection
-                  heroData={heroData[heroCount]}
-                  heroCount={heroCount}
-                  setHeroCount={setHeroCount}
-                />
-              </>
-            ) : (
               <Home />
-            )
           }
         />
         <Route path="/login" element={<Login />} />

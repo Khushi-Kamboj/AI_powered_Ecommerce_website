@@ -1,0 +1,22 @@
+POST http://localhost:8000/api/auth/registration
+Content-Type: application/json
+
+{
+  "name": "khushi",
+  "email": "khushi13@gmail.com",
+  "password": "12567fg8"
+}
+
+###
+
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+  "email":"khushi12@gmail.com",
+  "password":"12567fg8"
+}
+
+###
+
+GET http://localhost:8000/api/auth/logout

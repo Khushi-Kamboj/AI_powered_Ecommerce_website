@@ -5,25 +5,10 @@ import Login from './pages/Login';
 import { Routes, Route } from 'react-router-dom';
 import { Nav } from './component/Nav';
 import { userDataContext } from '../context/UserContext.jsx';
+import ProtectedRoute from './component/ProtectedRoutes';
 
 function App() {
   const { userData } = useContext(userDataContext);
-  const [heroCount, setHeroCount] = useState(0);
-
-  const heroData = [
-    { text1: "Explore", text2: "Your Style" },
-    { text1: "Discover", text2: "New Trends" },
-    { text1: "Shop", text2: "The Collection" },
-    { text1: "Unleash", text2: "Your Fashion" },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroCount(prev => (prev + 1) % heroData.length);
-    }, 2000); 
-
-    return () => clearInterval(interval); 
-  }, []); 
 
   return (
     <>
@@ -33,7 +18,9 @@ function App() {
         <Route
           path="/"
           element={
+            <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
           }
         />
         <Route path="/login" element={<Login />} />

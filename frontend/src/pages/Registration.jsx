@@ -10,10 +10,19 @@ import axios from 'axios';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase.js';
 import { userDataContext } from '../../context/UserContext.jsx';
+import { useEffect } from 'react';
 
 function Registration (){
 
   let [show , setShow] = useState(false);
+  const { userData } = useContext(userDataContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userData) {
+      navigate('/');
+    }
+  }, [userData, navigate]);
 
   let {serverUrl} = useContext(authDataContext);
   let {getCurrentUser} = useContext(userDataContext);
@@ -22,7 +31,6 @@ function Registration (){
   let [email ,setEmail] = useState("");
   let [password , setPassword] = useState("");
   let [errorMsg, setErrorMsg] = useState(""); 
-  let navigate = useNavigate();
 
   const handleSignup = async(event)=>{
     event.preventDefault();

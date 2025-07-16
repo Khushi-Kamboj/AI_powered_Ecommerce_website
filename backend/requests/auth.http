@@ -20,3 +20,14 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8000/api/auth/logout
+
+###
+POST http://localhost:8000/api/auth/adminlogin
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "admin@onecart.com",
+  "password": "admin12345678"
+}
+

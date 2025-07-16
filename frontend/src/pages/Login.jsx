@@ -9,15 +9,22 @@ import axios from 'axios';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase.js';
 import { userDataContext } from '../../context/UserContext.jsx';
+import { useEffect } from 'react';
 
 
 function Login () {
     let [show , setShow] = useState(false);
+    let { getCurrentUser, userData } = useContext(userDataContext);
 
     let navigate = useNavigate();
     
+    useEffect(() => {
+      if (userData) {
+        navigate('/');
+      }
+    }, [userData, navigate]);
+
     let {serverUrl} = useContext(authDataContext);
-    let {getCurrentUser} = useContext(userDataContext);
 
     let [email ,setEmail] = useState("");
     let [password , setPassword] = useState("");

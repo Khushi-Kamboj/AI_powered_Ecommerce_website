@@ -15,8 +15,6 @@ const isAuth = async(req , res , next) => {
             return res.status(401).json({ message: "User doesn't have a valid token" });
         }
 
-        // The payload property name depends on how you sign the token
-        // If you use { userId: ... } in your payload, this is correct
         req.userId = verifyToken.userId || verifyToken.id || verifyToken._id;
         next();
     } catch (error) {

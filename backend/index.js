@@ -5,10 +5,11 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js";
 import cors from 'cors';
 import userRoutes from "./routes/userRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
 
 dotenv.config();
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 8000;
 
 const app = express();
 
@@ -16,11 +17,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     origin: ["http://localhost:5173", "http://localhost:5174"],
-    credentials: true
+    credentials: true,
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/product", productRoutes);
 
 app.listen(port , () => {
     console.log(`Hello from server  ${port}`);
